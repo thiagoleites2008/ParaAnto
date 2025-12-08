@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 50%, #ffb6e0 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before, body::after {
+    content: '♡';
+    position: absolute;
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.15);
+    animation: float 6s ease-in-out infinite;
+}
+
+body::before {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+body::after {
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* BOTÓN VOLVER */
+.btn-volver {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 3px solid #ff69b4;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.btn-volver a {
+    color: #ff1493;
+    text-decoration: none;
+}
+
+.btn-volver:hover {
+    background: #ff69b4;
+    transform: scale(1.05);
+}
+
+.btn-volver:hover a {
+    color: white;
+}
+
+/* CONTENIDO PRINCIPAL */
+.content {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* GIF KUROMI */
+.kuromi-gif {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.kuromi-gif img {
+    width: 180px;
+    height: auto;
+    filter: drop-shadow(0 4px 15px rgba(255, 105, 180, 0.4));
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* CAJA DE MENSAJE */
+.message-box {
+    background: rgba(255, 255, 255, 0.95);
+    border: 4px solid #ff69b4;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-box h1 {
+    color: #ff1493;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* CONTENIDO DE TEXTO */
+.text-content {
+    color: #333;
+    line-height: 1.8;
+}
+
+.text-content p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+.text-content p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: #ff1493;
+    font-weight: bold;
+}
+
+.important {
+    background: rgba(255, 182, 193, 0.2);
+    padding: 15px;
+    border-left: 4px solid #ff69b4;
+    border-radius: 8px;
+    margin: 25px 0;
+}
+
+/* PISTA EASTER EGG */
+.easter-egg-hint {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 192, 203, 0.3);
+    border-radius: 15px;
+    border: 2px dashed #ff69b4;
+}
+
+.hint {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ff1493;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.secret {
+    font-size: 0.95rem;
+    color: #666;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.secret em {
+    color: #ff1493;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .btn-volver {
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .kuromi-gif img {
+        width: 150px;
+    }
+
+    .message-box {
+        padding: 30px 20px;
+    }
+
+    .message-box h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .text-content p {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .hint {
+        font-size: 1rem;
+    }
+
+    .secret {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .kuromi-gif img {
+        width: 120px;
+    }
+
+    .message-box {
+        padding: 25px 15px;
+    }
+
+    .message-box h1 {
+        font-size: 1.3rem;
+    }
+
+    .text-content p {
+        font-size: 0.95rem;
+    }
+
+    .important {
+        padding: 12px;
+    }
+
+    .easter-egg-hint {
+        padding: 15px;
+    }
+}
